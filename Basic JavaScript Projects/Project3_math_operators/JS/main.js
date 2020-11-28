@@ -1,6 +1,6 @@
 function addition() { //Addition function
     var addition = 2 + 2;
-    document.getElementById("Addition").innerHTML = "2 + 2 = " + addition;
+    document.getElementById("Math0").innerHTML = "2 + 2 = " + addition;
 }
 
 function subtraction() { //Subtraction function
