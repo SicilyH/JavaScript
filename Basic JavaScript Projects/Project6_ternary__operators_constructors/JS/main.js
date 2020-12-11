@@ -27,4 +27,14 @@ function Nested_Function () { //nested function/should output 10
         Plus_one();
         return Starting_point;
     }
+
+function Add_numbers_1() {
+    var X = 10;
+    console.log(X + 100);
+}
+function Add_numbers_2() {
+    console.log(X + 100);
+}
+Add_numbers_1();
+Add_numbers_2();
 }
