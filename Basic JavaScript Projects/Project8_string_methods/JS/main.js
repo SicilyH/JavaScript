@@ -13,7 +13,12 @@ function slice_Method() {   //slice method
     document.getElementById("Slice").innerHTML = Section;
 }
 
-function myFunction() {
-    var text = document.getElementById("Johnny").innerHTML;
-    document.getElementById("Johnny").innerHTML = text.toUpperCase();
+function string_Method() {  //string
+    var X =182;
+    document.getElementById("Numbers_to_string").innerHTML = X.toString();
+}
+
+function precision_Method() {  //precision
+    var X = 12938.3012987376112;
+    document.getElementById("Precision").innerHTML = X.toPrecision(10);
 }
