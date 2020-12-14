@@ -25,6 +25,7 @@ function get_Date() {    //if statement
 }
 
 function Age_Function() {     //if else statement
+    Age = document.getElementById("Age").value;
     if (Age >= 18) {
         Vote = "You are old enough to vote!";
     }
