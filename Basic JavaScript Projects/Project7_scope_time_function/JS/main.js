@@ -34,7 +34,7 @@ function Age_Function() {     //if else statement
     document.getElementById("How_old_are_you?").innerHTML = Vote;
 }
 
-function Time_function() {
+function Time_function() {      //time function w/ if/else
     var Time = new Date().getHours();
     var Reply;
     if (Time < 12 == Time > 0) {
@@ -47,3 +47,10 @@ function Time_function() {
     }
     document.getElementById("Time_of_day").innerHTML = Reply;
 }
+//  function Add_numbers_1() {
+//  var X = 10;
+//  console.log(15 + X);}
+//  function Add_numbers_2() {
+//  console.log(X + 100);}
+//  Add_numbers_1();
+//  Add_numbers_2();
