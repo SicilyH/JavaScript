@@ -9,19 +9,19 @@ function Color_Function() {
         case "Yellow":
             Color_Output = "Yellow" + Color_String;
         break;
-        case ""
+        case
              "Orange":
             Color_Output = "Orange" + Color_String;
         break;
-        case ""
+        case
              "Green":
             Color_Output = "Green" + Color_String;
         break;
-        case ""
+        case
              "Blue":
             Color_Output = "Blue" + Color_String;
         break;
-        case ""
+        case
              "Purple":
             Color_Output = "Purple" + Color_String;
         break;
