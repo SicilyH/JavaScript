@@ -35,41 +35,40 @@ function placeXOrO(squareNumber) {
     }
 }
 
-//This function plays placement sound.
-audio('/media.place.mp3');
-//This condition checks to see if it is computers turn.
-if(activePlayer === 'O') {
-    //This function disables clicking for computer choice.
-    disableClick();
-    //This function waits 1 second before placing the image
-    //and enabling click.
-    setTimeout(function () { computersTurn (); }, 1000);
+    //This function plays placement sound.
+    audio('/media.place.mp3');
+    //This condition checks to see if it is computers turn.
+    if(activePlayer === 'O') {
+        //This function disables clicking for computer choice.
+        disableClick();
+        //This function waits 1 second before placing the image
+        //and enabling click.
+        setTimeout(function () { computersTurn (); }, 1000);
     }
     //Returning true is needed for our computersTurn() function to work.
     return true;
 }
 
-//This function results in a random square being selected.
-function computersTurn() {
-    //This boolean is needed for our while loop.
-    let success = false;
-    //This variable stores a random number 0-8
-    let pickASquare;
-    //This condition allows our while loop to keep
-    //trying if a square is selected already.
-    while(!success){
-        //A random number between 0 and 8 is selected
-        pickASquare = String(Math.floor(Math.random() * 9));
-        //If the random number evaluates returns true, the square hasn't been selected yet.
-        if (placeXOrO(pickASquare));
-            //This line calls the function.
-            placeXOrO(pickASquare);
-            //This changes our boolean and ends the loop.
-            success = true;
-        };
+    //This function results in a random square being selected.
+    function computersTurn() {
+        //This boolean is needed for our while loop.
+        let success = false;
+        //This variable stores a random number 0-8
+        let pickASquare;
+        //This condition allows our while loop to keep
+        //trying if a square is selected already.
+        while(!success) {
+            //A random number between 0 and 8 is selected
+            pickASquare = String(Math.floor(Math.random() * 9));
+            //If the random number evaluates returns true, the square hasn't been selected yet.
+            if (placeXOrO(pickASquare)) {
+                //This line calls the function.
+                placeXOrO(pickASquare);
+                //This changes our boolean and ends the loop.
+                success = true;
+            };
+        }
     }
-  }
-}
 
 //This function parses the selectedSquares array to search for win conditions.
 //drawWinLine function is called to draw line if condition is met.
@@ -123,7 +122,24 @@ function checkWinConditions() {
         const b = selectedSquares.includes(squareB);
         const c = selectedSquares.includes(squareC);
         //If the 3 variables we pass are all incuded in our array true is
-        //returned and ur else if conditon executes the drawWinLine function.
-        if (a === true && b === true && c ===) { return true;}
+        //returned and our else if conditon executes the drawWinLine function.
+        if (a === true && b === true && c === true) { return true;}
         }
+    }
+
+    //This function makes our body element temporarily unclickable.
+    function disableClick() {
+        //This makes our body unclickable.
+        body.style.pointerEvents = 'none';
+        //This makes our body clickable after one second
+        serTimeout(function() {body.style.pointerEvents = 'auto';}, 1000);
+    }
+
+    //This function takes a string parameter of the path you set earlier for
+    //placement sound ('./media/place.mp3)
+    function audio(audioURL) {
+        //We create a new audio object and we pass the path as a parameter.
+        let audio = new Audio(audioURL);
+        //Play method plays our audio sound.
+        audio.play();
     }
