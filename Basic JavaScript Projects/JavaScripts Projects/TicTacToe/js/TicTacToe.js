@@ -68,7 +68,7 @@ function computersTurn() {
             success = true;
         };
     }
-    }
+  }
 }
 
 //This function parses the selectedSquares array to search for win conditions.
@@ -83,13 +83,13 @@ function checkWinConditions() {
     // X 0, 3, 6 condition.
     else if (arrayIncludes('0X', '3X', '6X')) { drawWinLine(100, 50, 100, 558); }
     // X 1, 4, 7 condition.
-    else if (arrayIncludes('1X', '4X', '7X')) ( drawWinLine (304, 50, 304, 558); }
+    else if (arrayIncludes('1X', '4X', '7X')) { drawWinLine (304, 50, 304, 558); }
     // X 2, 5, 8 condition. ;
-    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(508, 50, 508, 558); )
+    else if (arrayIncludes('2X', '5X', '8X')) { drawWinLine(508, 50, 508, 558); }
     // X 6, 4, 2 condition.
     else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine (100, 508, 510, 90); }
     // X 0, 4, 8 condition.
-    else if (arrayIncludes('0X', "4X", '8X"')) { drawWinLine(100, 100, 520, 520): }
+    else if (arrayIncludes('0X', "4X", '8X"')) { drawWinLine(100, 100, 520, 520); }
     // O 0, 1, 2 condition.
     else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(50, 100, 558, 100); }
     // 0 3, 4, 5 condition.
@@ -113,3 +113,17 @@ function checkWinConditions() {
     audio('./media/tie.mp3');
     // This function sets a .3 second timer before the resetGame is called.
     setTimeout (function () { resetGame(); }, 1000);
+    }
+
+    //Ths function checks if any array includes 3 strings.
+    //It is used to check for each win condition.
+    function arrayIncludes(sqaureA, squareB, squareC) {
+        //The next 3 variables will be used to check for 3 in a row.
+        const a = selectedSquares.includes(squareA);
+        const b = selectedSquares.includes(squareB);
+        const c = selectedSquares.includes(squareC);
+        //If the 3 variables we pass are all incuded in our array true is
+        //returned and ur else if conditon executes the drawWinLine function.
+        if (a === true && b === true && c ===) { return true;}
+        }
+    }
