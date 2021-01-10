@@ -8,7 +8,7 @@ function placeXOrO(squareNumber) {
     //This condition ensures a square hasn't been selected already.
     //The .some() method is used to check each element of SelectedSquare array
     //to see if it contains the square number clicked on.
-    if (!selectedSquares.some(element => element.includes(SquareNumber))) {
+    if (!selectedSquares.some(element => element.includes(squareNumber))) {
         //This variable retrieves the html element id that was clicked.
         let select = document.getElementById(squareNumber);
         //This condition checks who's turn it is.
@@ -157,7 +157,7 @@ function checkWinConditions() {
         //This line indicates where the end of a lines x axis is.
         x2 = coordX2,
         //This line indicates where the end of a lines x axis is.
-        x2 = coordY2,
+        y2 = coordY2,
         //This variable stores temporary x axis data we update in our animation loop.
         x = x1,
         //This variable stores temporary y axis data we updadte in our animation loop.
@@ -190,7 +190,13 @@ function checkWinConditions() {
                 //This condition cancels our animation loop if we reach the end points.
                 if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop);}
             }
-        }
+            //This condition is similar to the one above.
+            //It was necessary for the 6, 4, 2 win condition.
+            if (x1 <= x2 && y1 >= y2) {
+                if (x < x2) { x+= 10; }
+                if (y > y2) { y -= 10; }
+                if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
+            }
     }
 
     //This function clears our canvas after our win line is drawn.
