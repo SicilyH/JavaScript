@@ -27,13 +27,12 @@ function placeXOrO(squareNumber) {
         //This condition is for changing the active player.
         if (activePlayer === 'X') {
             //If active player is 'X' change it to 'O'.
-            activePlayer = '0';
+            activePlayer = 'O';
         //If active player is anything other than 'X'.
         } else {
             //Change the activePlayer to 'X'
             activePlayer = 'X';
     }
-}
 
     //This function plays placement sound.
     audio('./media/place.mp3');
@@ -69,12 +68,12 @@ function placeXOrO(squareNumber) {
                 };
             }
         }
-
+    }
 //This function parses the selectedSquares array to search for win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
     // X 0, 1, 2 condition.
-    if      (arrayIncludes('0X', '1X', '2x')) { drawWinLine(50, 100, 558, 100) }
+    if      (arrayIncludes('0X', '1X', '2X')) { drawWinLine(50, 100, 558, 100) }
     // X 3, 4, 5 condition.
     else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(50, 334, 558, 304) }
     // X 6, 7, 8 condition.
@@ -212,7 +211,7 @@ function checkWinConditions() {
 //This line disallows clicking while the win sound is playing
 disableClick();
 //This line plays the win sounds.
-audio('.media/winGame.mp3');
+audio('./media/winGame.mp3');
 //This line calls our main animation loop.
 animateLineDrawing();
 //This line waits 1 second.
