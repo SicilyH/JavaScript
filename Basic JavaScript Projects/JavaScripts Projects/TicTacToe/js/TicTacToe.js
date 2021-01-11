@@ -87,7 +87,7 @@ function checkWinConditions() {
     // X 6, 4, 2 condition.
     else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine (100, 508, 510, 90) }
     // X 0, 4, 8 condition.
-    else if (arrayIncludes('0X', "4X", '8X"')) { drawWinLine(100, 100, 520, 520) }
+    else if (arrayIncludes('0X', '4X', '8X')) { drawWinLine(100, 100, 520, 520) }
     // O 0, 1, 2 condition.
     else if (arrayIncludes('0O', '1O', '2O')) { drawWinLine(50, 100, 558, 100) }
     // 0 3, 4, 5 condition.
@@ -187,7 +187,7 @@ function checkWinConditions() {
                 //This conditon adds ten to the previous end y point.
                 if (y < y2) {y +=10; }
                 //This condition cancels our animation loop if we reach the end points.
-                if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop);}
+                if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop);}
             }
             //This condition is similar to the one above.
             //It was necessary for the 6, 4, 2 win condition.
