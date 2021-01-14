@@ -8,9 +8,9 @@ const Calculator = {
     Wait_Second_Operand: false,
     // this will  hold the operator, we set it to null for now
     operator: null,
-};
+}
 
-// this modifies values each time a butto is clicked
+// this modifies values each time a button is clicked
 function Input_Digit(digit) {
     const { Display_Value, Wait_Second_Operand } = Calculator;
     // we are checking to see if Wait_Secind_Operand is true and set
@@ -23,7 +23,7 @@ function Input_Digit(digit) {
         // otherwise it adds onto it
         Calculator.Display_Value = Display_Value === '0' ? digit : Display_Value + digit;
     }
-};
+}
 
 // this section handles decimal points
 function Input_Decimal(dot) {
@@ -64,7 +64,6 @@ function Handle_Operator(Next_Operator) {
         result = Number(result * 1).toString()
         Calculator.Dispaly_Value = parseFloat(result);
         Calculator.First_Operand = parseFloat(result);
-
     }
     Calculator.Wait_Second_Operand = true;
     Calculator.operator = Next_Operator;
@@ -78,11 +77,13 @@ const Perform_Calculation = {
     '+': (First_Operand, Second_Operand) => First_Operand + Second_Operand,
 
     '-': (First_Operand, Second_Operand) => First_Operand - Second_Operand,
-};
+
+    '=': (First_Operand, Second_Operand) => Second_Operand
+}
 
 function Calculator_Reset() {
     Calculator.Dispaly_Value = '0';
-    Calculator_First_Operand = null;
+    Calculator.First_Operand = null;
     Calculator.Wait_Second_Operand = false;
     Calculator.operator = null;
 }
