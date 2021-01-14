@@ -1,7 +1,7 @@
 //Creates an object to keep track of values
 const Calculator = {
     // this displays 0 on the screen
-    Dispaly_Value: '0',
+    Display_Value: '0',
     // this will hold the operand for any expressions, we set it to null for now
     First_Operand: null,
     // this checks whether or not the second operand has been input
@@ -13,7 +13,7 @@ const Calculator = {
 // this modifies values each time a button is clicked
 function Input_Digit(digit) {
     const { Display_Value, Wait_Second_Operand } = Calculator;
-    // we are checking to see if Wait_Secind_Operand is true and set
+    // we are checking to see if Wait_Second_Operand is true and set
     // Display_Value to the key that was clicked.
     if (Wait_Second_Operand === true) {
         Calculator.Display_Value = digit;
@@ -30,7 +30,7 @@ function Input_Decimal(dot) {
     // this ensures that accidental clicking of the decimal point
     // doesn't cause bugs in your operation
     if (Calculator.Wait_Second_Operand === true) return;
-    if (Calculator.Display_Value.includes(dot)) {
+    if (!Calculator.Display_Value.includes(dot)) {
         // we are saying that the Display_Value does not contain a decimal point
         // we want to add a decimal point
         Calculator.Display_Value += dot;
@@ -62,7 +62,7 @@ function Handle_Operator(Next_Operator) {
         result = Number(result).toFixed(9)
         //this will remove any trailing 0's
         result = Number(result * 1).toString()
-        Calculator.Dispaly_Value = parseFloat(result);
+        Calculator.Display_Value = parseFloat(result);
         Calculator.First_Operand = parseFloat(result);
     }
     Calculator.Wait_Second_Operand = true;
@@ -82,7 +82,7 @@ const Perform_Calculation = {
 }
 
 function Calculator_Reset() {
-    Calculator.Dispaly_Value = '0';
+    Calculator.Display_Value = '0';
     Calculator.First_Operand = null;
     Calculator.Wait_Second_Operand = false;
     Calculator.operator = null;
@@ -90,7 +90,7 @@ function Calculator_Reset() {
 // this function updates the screen with the contents of Display_Value
 function Update_Display() {
     const display = document.querySelector('.calculator-screen');
-    display.value = Calculator.Dispaly_Value;
+    display.value = Calculator.Display_Value;
 }
 
 Update_Display();
