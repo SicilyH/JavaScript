@@ -8,7 +8,7 @@ const Calculator = {
     Wait_Second_Operand: false,
     // this will  hold the operator, we set it to null for now
     operator: null,
-}
+};
 
 // this modifies values each time a button is clicked
 function Input_Digit(digit) {
@@ -79,7 +79,7 @@ const Perform_Calculation = {
     '-': (First_Operand, Second_Operand) => First_Operand - Second_Operand,
 
     '=': (First_Operand, Second_Operand) => Second_Operand
-}
+};
 
 function Calculator_Reset() {
     Calculator.Display_Value = '0';
