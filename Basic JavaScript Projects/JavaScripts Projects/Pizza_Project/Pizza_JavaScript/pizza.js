@@ -52,7 +52,7 @@ runningTotal = (runningTotal + toppingTotal);
 console.log("total selected topping items: "+toppingCount);
 console.log(toppingCount+" topping - 1 free topping = "+"$"+toppingTotal+".00");
 console.log("topping text1: "+text1);
-console.log(PurchaseTotal:"+"$"+runningTotal+".00);
+console.log("PurchaseTotal:"+"$"+runningTotal+".00");
 document.getElementById("showText").innerHTML=text1;
 document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+
     runningTotal+".00"+"</strong></h3>"
